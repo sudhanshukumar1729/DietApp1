@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 public class fragment2 extends Fragment {
 
     public interface OnSubmitClickListener {
+        void onCreate(Bundle savedInstanceState2);
+
         void onSubmitClicked2(int calorie);
     }
 
@@ -40,7 +42,7 @@ public class fragment2 extends Fragment {
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view2) {
                 calculateAndSubmit2();
             }
         });

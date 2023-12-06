@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements fragment1.OnSubmitClickListener {
+public class MainActivity extends AppCompatActivity implements fragment1.OnSubmitClickListener,fragment2.OnSubmitClickListener,fragment3.OnSubmitClickListener {
 
     Button btn,btn2,btn3;
     TextView calorie;
     public int ans = 0;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements fragment1.OnSubmi
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment1 first_fragment = new fragment1();
+                com.example.dietapp.fragment1 first_fragment = new com.example.dietapp.fragment1();
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.mainactivity, first_fragment);
@@ -35,40 +35,50 @@ public class MainActivity extends AppCompatActivity implements fragment1.OnSubmi
             }
         });
 
-        //fragment2
+
+
+//    @Override
+//    public void onCreate2(Bundle savedInstanceState2) {
+//        super.onCreate(savedInstanceState2);
+//        setContentView(R.layout.activity_main);
+
+//        calorie = findViewById(R.id.calorie);
+
         btn2 = findViewById(R.id.buttonrice);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment1 first_fragment = new fragment1();
-                FragmentManager manager = getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.mainactivity, first_fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                com.example.dietapp.fragment2 second_fragment = new com.example.dietapp.fragment2();
+                FragmentManager manager2 = getSupportFragmentManager();
+                FragmentTransaction transaction2 = manager2.beginTransaction();
+                transaction2.replace(R.id.mainactivity, second_fragment);
+                transaction2.addToBackStack(null);
+                transaction2.commit();
             }
         });
 
-        //fragment3
         btn3 = findViewById(R.id.buttonmilk);
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fragment1 first_fragment = new fragment1();
-                FragmentManager manager = getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction();
-                transaction.replace(R.id.mainactivity, first_fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                com.example.dietapp.fragment3 third_fragment = new com.example.dietapp.fragment3();
+                FragmentManager manager3 = getSupportFragmentManager();
+                FragmentTransaction transaction3 = manager3.beginTransaction();
+                transaction3.replace(R.id.mainactivity, third_fragment);
+                transaction3.addToBackStack(null);
+                transaction3.commit();
             }
         });
     }
 
+
     @Override
-    public void onSubmitClicked(int calorieValue) {
+    public void onSubmitClicked1(int calorieValue) {
         ans = ans+calorieValue;
         calorie.setText("KCalorie: " + ans);
     }
+
+
 
     //submit for fragment2
     public void onSubmitClicked2(int calorieValue) {
@@ -76,9 +86,12 @@ public class MainActivity extends AppCompatActivity implements fragment1.OnSubmi
         calorie.setText("KCalorie: " + ans);
     }
 
-    //submit for fragment3
     public void onSubmitClicked3(int calorieValue) {
         ans = ans+calorieValue;
         calorie.setText("KCalorie: " + ans);
     }
+
+
 }
+
+

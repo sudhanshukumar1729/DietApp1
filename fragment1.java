@@ -14,7 +14,9 @@ import androidx.fragment.app.Fragment;
 public class fragment1 extends Fragment {
 
     public interface OnSubmitClickListener {
-        void onSubmitClicked(int calorie);
+        void onCreate(Bundle savedInstanceState1);
+
+        void onSubmitClicked1(int calorie);
     }
 
     private OnSubmitClickListener callback;
@@ -40,22 +42,22 @@ public class fragment1 extends Fragment {
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                calculateAndSubmit();
+            public void onClick(View view2) {
+                calculateAndSubmit1();
             }
         });
 
         return view;
     }
 
-    private void calculateAndSubmit() {
+    private void calculateAndSubmit1() {
         String quantityString = WheatQuantity.getText().toString();
 
         if (!quantityString.isEmpty()) {
             float quantity = Float.parseFloat(quantityString);
-            int calorie = (int) (quantity * 322/100);
+            int calorie = (int) (quantity * 320/100);
 
-            callback.onSubmitClicked(calorie);
+            callback.onSubmitClicked1(calorie);
         }
 
         if (getFragmentManager() != null) {
